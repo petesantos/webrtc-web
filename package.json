@@ -1,0 +1,10 @@
+{
+  "name": "webrtc-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:petesantos/webrtc-web.git",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^11.3.0"
+  }
+}
