@@ -1,27 +1,26 @@
-'use strict';
 
-// On this codelab, you will be streaming only video (video: true).
-const mediaStreamConstraints = {
-  video: true,
-};
+var video = document.getElementById('video');
+var photo = document.getElementById('photo');
 
-// Video element where stream will be placed.
-const localVideo = document.querySelector('video');
-
-// Local stream that will be reproduced on the video.
-let localStream;
-
-// Handles success by adding the MediaStream to the video element.
-function gotLocalMediaStream(mediaStream) {
-  localStream = mediaStream;
-  localVideo.srcObject = mediaStream;
+function snapPhoto() {
+  photoContext.drawImage(video, 0, 0, photo.width, photo.height);
+  show(photo, sendBtn);
 }
 
-// Handles error by logging a message to the console with the error message.
-function handleLocalMediaStreamError(error) {
-  console.log('navigator.getUserMedia error: ', error);
+const withErrorHandling = (message, WrappedFn) => async (...args) => {
+  try {
+    return await WrappedFn(...args)
+  } catch (e) {
+    alert(`${message} : ${e.name}`)
+  }
 }
 
-// Initializes media stream.
-navigator.mediaDevices.getUserMedia(mediaStreamConstraints)
-  .then(gotLocalMediaStream).catch(handleLocalMediaStreamError);
+const getWebCamVideo = withErrorHandling('getUserMediaError', async () => {
+  gotStream(await navigator.mediaDevices.getUserMedia({video: true}))
+})
+
+const takePhoto = (videoEl, photoEl) => {
+  const photContext = photoEl.getContext('2d')
+  photoContext.drawImage(videoEl, 0, 0, photoEl.width, photoEl.height)
+  show(photoEl, sendBtn)
+}

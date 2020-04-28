@@ -1,0 +1,23 @@
+{
+  "name": "work",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^11.3.0"
+  },
+  "scripts": {
+    "start-dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "http-serve": "^1.0.1",
+    "node-static": "^0.7.11",
+    "nodemon": "^2.0.3",
+    "os": "^0.1.1",
+    "socket.io": "^2.3.0",
+    "static-https-server": "^1.0.1",
+    "webrtc-adapter": "^7.5.1"
+  }
+}

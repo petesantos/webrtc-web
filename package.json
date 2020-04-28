@@ -5,6 +5,7 @@
   "repository": "git@github.com:petesantos/webrtc-web.git",
   "license": "MIT",
   "dependencies": {
-    "serve": "^11.3.0"
+    "serve": "^11.3.0",
+    "webrtc-adapter": "^7.5.1"
   }
 }
